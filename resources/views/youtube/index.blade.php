@@ -32,7 +32,7 @@
                         <p style="color: red;">{{ session('error') }}</p>
                         @endif
 
-                        <form action="{{ route('channel.videos') }}" method="POST">
+                        <form action="{{ route('channel.videos') }}" method="GET">
                             @csrf
                             <div class="mb-3">
                                 <label for="channel_id" class="form-label">Channel ID:</label>

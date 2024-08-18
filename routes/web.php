@@ -16,7 +16,7 @@ use App\Http\Controllers\YouTubeController;
 
 
 Route::get('/youtube',[YouTubeController::class,'index']);
-Route::post('/channel-videos', [YouTubeController::class, 'showChannelVideos'])->name('channel.videos');
+Route::get('/channel-videos', [YouTubeController::class, 'showChannelVideos'])->name('channel.videos');
 
 
 
