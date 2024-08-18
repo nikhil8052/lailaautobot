@@ -1,41 +1,57 @@
-<!-- resources/views/channel_videos.blade.php -->
-
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Channel Videos</title>
-</head>
-<body>
-    <h1>Enter YouTube Channel Details</h1>
+    <head>
+        <title>Channel Videos</title>
+        <!-- Bootstrap CSS CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/bc.png') }}" />
 
-    @if (session('error'))
-        <p style="color:red;">{{ session('error') }}</p>
-    @endif
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <style>
+            body{
+                                background-image: url("{{ asset("images/bc.png") }}");
 
-    <form action="{{ route('channel.videos') }}" method="POST">
-        @csrf
-        <label for="channel_id">Channel ID:</label>
-        <input type="text" id="channel_id" name="channel_id" required><br><br>
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="main-div">
+                <!-- Image on the left (8 columns) -->
+                <div class=" image-container main-img-container">
+                    <img src="{{ asset('images/youtube.png') }}" alt="Background Image" />
+                </div>
+                <!-- Form on the right (4 columns) -->
+                <div class="form-main-div">
+                    <div class="form-container">
+                        <h2>Hey, This is the Free Website you can all use without any Hassle</h2>
+                        <p>Say Thanks to Ali Riaz</p>
+                        <p>Connect with me On Whatsapp +92 3018191025, If you need any help you can always contact me privately.</p>
 
-        <label for="channel_name">Channel Name:</label>
-        <input type="text" id="channel_name" name="channel_name" required><br><br>
+                        @if (session('error'))
+                        <p style="color: red;">{{ session('error') }}</p>
+                        @endif
 
-        <button type="submit">Get Videos</button>
-    </form>
+                        <form action="{{ route('channel.videos') }}" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="channel_id" class="form-label">Channel ID:</label>
+                                <input type="text" id="channel_id" name="channel_id" class="form-control" required />
+                            </div>
 
-    @if(isset($videos))
-        <h2>Channel Name: {{ $channelName }}</h2>
-        <div>
-            @foreach($videos as $video)
-                @if($video['videoId'])
-                    <div>
-                        <h3>{{ $video['title'] }}</h3>
-                        <img src="{{ $video['thumbnail'] }}" alt="{{ $video['title'] }}">
-                        <p><a href="https://www.youtube.com/watch?v={{ $video['videoId'] }}&list={{ $video['playlist_id'] }}" target="_blank">Watch Video</a></p>
+                            <div class="mb-3">
+                                <label for="channel_name" class="form-label">Channel Name:</label>
+                                <input type="text" id="channel_name" name="channel_name" class="form-control" required />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Get Videos</button>
+                        </form>
                     </div>
-                @endif
-            @endforeach
+                </div>
+            </div>
         </div>
-    @endif
-</body>
+
+        <!-- Bootstrap JS and Popper.js CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
