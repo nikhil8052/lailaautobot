@@ -15,12 +15,16 @@ use App\Http\Controllers\YouTubeController;
 */
 
 
-Route::get('/youtube',[YouTubeController::class,'index']);
+
+
+Route::get('/',[YouTubeController::class,'index'])->name('home');;
 Route::get('/channel-videos', [YouTubeController::class, 'showChannelVideos'])->name('channel.videos');
+Route::get('/auth-check', [YouTubeController::class, 'checkSecretKey'])->name('channel.check_secret_key');
 
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
