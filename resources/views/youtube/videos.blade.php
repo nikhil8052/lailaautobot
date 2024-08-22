@@ -10,7 +10,7 @@
             margin: 0;
             height: 100vh;
             width: 100%;
-            background-image: url("{{ asset('images/bc.png') }}");
+            background-image: url("{{ asset('images/bc2.jpg') }}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
